@@ -826,4 +826,42 @@ column-gap: 12px;
 ```
 
 }
+```css
+/* Gym Statistics */
+.gym-statistics {
+    padding: 50px 0;
+    background: #111111;
+    border-bottom: 1px solid #292929;
+}
+
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    text-align: center;
+}
+
+.statistic-card h3 {
+    color: #ff6b00;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.statistic-card h3 span {
+    font-size: 20px;
+}
+
+.statistic-card p {
+    color: #aaaaaa;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .statistics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 15px;
+    }
+}
+```
 
