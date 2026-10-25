@@ -1,0 +1,744 @@
+/* =========================
+
+1. GLOBAL STYLES
+   ========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+:root {
+--bg-color: #0b0b0d;
+--surface-color: #151518;
+--card-color: #1c1c20;
+--primary-color: #ff5a1f;
+--text-color: #ffffff;
+--muted-color: #a5a5ad;
+--border-color: #303036;
+}
+
+html {
+scroll-behavior: smooth;
+scroll-padding-top: 90px;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+background: var(--bg-color);
+color: var(--text-color);
+line-height: 1.6;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+button,
+input {
+font: inherit;
+}
+
+button,
+a {
+-webkit-tap-highlight-color: transparent;
+}
+
+img {
+display: block;
+max-width: 100%;
+}
+
+.container {
+width: min(1120px, 90%);
+margin-inline: auto;
+}
+
+.section {
+padding: 90px 0;
+}
+
+.section-tag {
+color: var(--primary-color);
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 3px;
+}
+
+.section-title {
+font-size: clamp(30px, 4vw, 48px);
+line-height: 1.15;
+margin: 14px 0;
+letter-spacing: -1px;
+}
+
+.section-description {
+color: var(--muted-color);
+max-width: 600px;
+margin-bottom: 35px;
+}
+
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+padding: 14px 22px;
+background: var(--primary-color);
+color: #fff;
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 0.5px;
+border: 1px solid var(--primary-color);
+border-radius: 3px;
+cursor: pointer;
+transition: 0.25s ease;
+}
+
+.btn:hover {
+background: transparent;
+color: var(--primary-color);
+}
+
+.btn-outline {
+background: transparent;
+border-color: #48484f;
+}
+
+.btn-outline:hover {
+background: var(--primary-color);
+color: #fff;
+border-color: var(--primary-color);
+}
+
+/* =========================
+2. NAVIGATION
+========================= */
+
+.navbar {
+position: sticky;
+top: 0;
+z-index: 100;
+background: rgba(11, 11, 13, 0.96);
+border-bottom: 1px solid #252529;
+backdrop-filter: blur(12px);
+}
+
+.nav-container {
+min-height: 82px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 25px;
+}
+
+.logo {
+font-size: 29px;
+font-weight: 900;
+letter-spacing: -1.5px;
+}
+
+.logo span {
+color: var(--primary-color);
+}
+
+.nav-links {
+display: flex;
+align-items: center;
+gap: 27px;
+}
+
+.nav-links a {
+color: #c5c5cb;
+font-size: 12px;
+font-weight: 700;
+transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+color: var(--primary-color);
+}
+
+.nav-btn {
+padding: 12px 16px;
+}
+
+/* =========================
+3. HERO SECTION
+========================= */
+
+.hero {
+position: relative;
+min-height: 700px;
+display: flex;
+align-items: center;
+overflow: hidden;
+background:
+radial-gradient(ellipse at 78% 35%, rgba(255, 90, 31, 0.15), transparent 35%),
+linear-gradient(110deg, #0b0b0d 35%, #17110f 100%);
+}
+
+.hero::after {
+content: "";
+position: absolute;
+inset: 0;
+pointer-events: none;
+background-image:
+linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+background-size: 50px 50px;
+mask-image: linear-gradient(to right, transparent, black);
+}
+
+.hero-overlay {
+position: absolute;
+width: 430px;
+height: 430px;
+right: 5%;
+top: 8%;
+border: 1px solid rgba(255, 90, 31, 0.15);
+border-radius: 50%;
+box-shadow:
+0 0 0 45px rgba(255, 90, 31, 0.025),
+0 0 0 90px rgba(255, 90, 31, 0.02);
+}
+
+.hero-content {
+position: relative;
+z-index: 1;
+padding-top: 65px;
+}
+
+.hero-tag {
+color: #b7b7bd;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 2px;
+margin-bottom: 25px;
+}
+
+.hero h1 {
+max-width: 950px;
+font-size: clamp(43px, 7vw, 82px);
+font-weight: 900;
+line-height: 0.99;
+letter-spacing: -3px;
+}
+
+.hero h1 span {
+color: var(--primary-color);
+}
+
+.hero-description {
+color: #b5b5bc;
+max-width: 550px;
+font-size: 15px;
+margin: 25px 0 30px;
+}
+
+.hero-buttons {
+display: flex;
+flex-wrap: wrap;
+gap: 13px;
+}
+
+.hero-bottom {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 25px;
+border-top: 1px solid #343438;
+margin-top: 75px;
+padding: 27px 0 35px;
+}
+
+.hero-bottom strong {
+font-size: 30px;
+font-weight: 900;
+}
+
+.hero-bottom strong span {
+color: var(--primary-color);
+}
+
+.hero-bottom p {
+color: var(--muted-color);
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 1px;
+margin-top: 3px;
+}
+
+/* =========================
+4. PROGRAMS
+========================= */
+
+.program-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 18px;
+margin-top: 35px;
+}
+
+.program-card {
+min-height: 265px;
+padding: 28px;
+background: linear-gradient(145deg, #1b1b20, #111113);
+border: 1px solid #303036;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.program-card:hover {
+transform: translateY(-5px);
+border-color: var(--primary-color);
+}
+
+.program-number {
+color: var(--primary-color);
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 2px;
+}
+
+.program-card h3 {
+font-size: 20px;
+line-height: 1.3;
+margin: 32px 0 12px;
+}
+
+.program-card p,
+.facility-card p {
+color: var(--muted-color);
+font-size: 13px;
+}
+
+.program-card a {
+margin-top: auto;
+padding-top: 25px;
+color: var(--primary-color);
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 1px;
+}
+
+/* =========================
+5. FACILITIES
+========================= */
+
+.facilities {
+background: #111113;
+border-top: 1px solid #252529;
+border-bottom: 1px solid #252529;
+}
+
+.facility-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 18px;
+margin-top: 35px;
+}
+
+.facility-card {
+min-height: 190px;
+padding: 28px;
+border: 1px solid #303036;
+background:
+linear-gradient(135deg, rgba(255, 90, 31, 0.06), transparent 65%),
+#151518;
+}
+
+.facility-card h3 {
+font-size: 17px;
+margin-bottom: 14px;
+}
+
+/* =========================
+6. MEMBERSHIP
+========================= */
+
+.membership-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 18px;
+margin-top: 35px;
+align-items: stretch;
+}
+
+.membership-card {
+position: relative;
+padding: 32px 25px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+background: var(--surface-color);
+border: 1px solid #303036;
+}
+
+.membership-card.featured {
+border-color: var(--primary-color);
+background: linear-gradient(145deg, #26160f, #151518 65%);
+}
+
+.popular-label {
+color: var(--primary-color);
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 1.5px;
+margin-bottom: 12px;
+}
+
+.membership-card h3 {
+font-size: 17px;
+letter-spacing: 1px;
+}
+
+.price {
+margin: 18px 0;
+font-size: 43px;
+font-weight: 900;
+}
+
+.price span {
+color: var(--muted-color);
+font-size: 13px;
+font-weight: 400;
+}
+
+.membership-card > p:not(.price) {
+min-height: 55px;
+color: var(--muted-color);
+font-size: 13px;
+margin-bottom: 25px;
+}
+
+.membership-card .btn {
+width: 100%;
+margin-top: auto;
+}
+
+/* =========================
+7. COACHES
+========================= */
+
+.coach-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 18px;
+margin-top: 35px;
+}
+
+.coach-card {
+padding: 20px;
+background: #19191d;
+border: 1px solid #303036;
+}
+
+.coach-placeholder {
+height: 220px;
+display: grid;
+place-items: center;
+margin-bottom: 20px;
+background:
+radial-gradient(circle, rgba(255, 90, 31, 0.17), transparent 65%),
+#222227;
+color: var(--primary-color);
+font-size: 65px;
+font-weight: 900;
+}
+
+.coach-card h3 {
+font-size: 16px;
+}
+
+.coach-card p {
+color: var(--muted-color);
+font-size: 12px;
+margin-top: 5px;
+}
+
+/* =========================
+8. TESTIMONIALS
+========================= */
+
+.testimonial-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 18px;
+margin-top: 35px;
+}
+
+.testimonial-card {
+padding: 28px;
+background: #151518;
+border: 1px solid #303036;
+}
+
+.testimonial-card > p {
+min-height: 90px;
+color: #d1d1d5;
+font-size: 14px;
+}
+
+.testimonial-card h3 {
+margin-top: 22px;
+font-size: 13px;
+}
+
+.testimonial-card span {
+color: var(--primary-color);
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 2px;
+}
+
+/* =========================
+9. FREE PASS FORM
+========================= */
+
+.free-pass {
+background:
+radial-gradient(ellipse at 15% 50%, rgba(255, 90, 31, 0.12), transparent 45%),
+#151518;
+border-top: 1px solid #303036;
+}
+
+.free-pass-content {
+display: grid;
+grid-template-columns: 1fr 0.8fr;
+gap: 70px;
+align-items: center;
+}
+
+.pass-form {
+display: flex;
+flex-direction: column;
+padding: 30px;
+background: #0e0e10;
+border: 1px solid #303036;
+}
+
+.pass-form label {
+color: #d5d5da;
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 1px;
+margin: 13px 0 7px;
+}
+
+.pass-form input {
+width: 100%;
+padding: 13px;
+color: white;
+background: #19191d;
+border: 1px solid #34343a;
+border-radius: 2px;
+outline: none;
+}
+
+.pass-form input:focus {
+border-color: var(--primary-color);
+}
+
+.pass-form button {
+width: 100%;
+margin-top: 23px;
+}
+
+.form-note {
+color: #777780;
+font-size: 10px;
+margin-top: 12px;
+text-align: center;
+}
+
+/* =========================
+10. FOOTER
+========================= */
+
+.footer {
+padding: 35px 0;
+background: #09090a;
+border-top: 1px solid #252529;
+}
+
+.footer-content {
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 20px;
+}
+
+.footer-content > p {
+color: var(--muted-color);
+font-size: 10px;
+letter-spacing: 1px;
+}
+
+.copyright {
+font-size: 10px;
+}
+
+/* =========================
+11. RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 900px) {
+.nav-container {
+gap: 15px;
+}
+
+```
+.nav-links {
+    gap: 14px;
+}
+
+.nav-links a {
+    font-size: 11px;
+}
+
+.nav-btn {
+    font-size: 10px;
+    padding: 10px;
+}
+
+.hero-bottom {
+    gap: 15px;
+}
+
+.hero-bottom strong {
+    font-size: 25px;
+}
+
+.free-pass-content {
+    gap: 35px;
+}
+```
+
+}
+
+@media (max-width: 700px) {
+.nav-container {
+min-height: 75px;
+flex-wrap: wrap;
+padding: 12px 0;
+}
+
+```
+.logo {
+    font-size: 26px;
+}
+
+.nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 0 3px;
+    overflow-x: auto;
+}
+
+.nav-links a {
+    white-space: nowrap;
+    font-size: 10px;
+}
+
+.nav-btn {
+    font-size: 9px;
+    padding: 10px;
+}
+
+.hero {
+    min-height: auto;
+}
+
+.hero-content {
+    padding-top: 75px;
+}
+
+.hero-tag {
+    font-size: 9px;
+    letter-spacing: 1.2px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 10vw, 62px);
+    letter-spacing: -1.8px;
+}
+
+.hero-description {
+    font-size: 13px;
+}
+
+.hero-overlay {
+    width: 230px;
+    height: 230px;
+    right: -70px;
+    top: 10%;
+}
+
+.hero-bottom {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 25px;
+    margin-top: 55px;
+}
+
+.hero-bottom p {
+    font-size: 9px;
+}
+
+.program-grid,
+.facility-grid,
+.membership-grid,
+.coach-grid,
+.testimonial-grid {
+    grid-template-columns: 1fr;
+}
+
+.program-card {
+    min-height: 235px;
+}
+
+.coach-placeholder {
+    height: 190px;
+}
+
+.testimonial-card > p {
+    min-height: auto;
+}
+
+.free-pass-content {
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.pass-form {
+    padding: 22px;
+}
+
+.footer-content {
+    flex-direction: column;
+    text-align: center;
+}
+```
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+html {
+scroll-behavior: auto;
+}
+
+```
+*,
+*::before,
+*::after {
+    transition-duration: 0.01ms !important;
+}
+```
+
+}
